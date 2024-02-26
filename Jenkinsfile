@@ -10,17 +10,14 @@ pipeline {
     stage('docker build') {
       steps
       {
-        script {
-        //sh 'docker build -t java_app .'
-     def dockerImage = docker.build("sangeetha1501/java:latest")
-      }
+       sh 'docker build -t java_app .'
       }
     }
     stage('docker Push') {
       steps
       {
-        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-        dockerImage.push()
+        withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/" ]) {
+        sh ' docker push sangeetha1501/java_app:latest'
   }
 }
     }
