@@ -10,8 +10,10 @@ pipeline {
     stage('docker build') {
       steps
       {
+        script {
         //sh 'docker build -t java_app .'
-        dockerImage = docker.build("sangeetha1501/java:latest")
+     def dockerImage = docker.build("sangeetha1501/java:latest")
+      }
       }
     }
     stage('docker Push') {
