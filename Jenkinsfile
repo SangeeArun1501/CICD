@@ -1,6 +1,6 @@
 Pipeline
 {
-    Agent any
+    agent any
     Stages
     {
         Stage('code checkout') {
