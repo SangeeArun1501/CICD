@@ -1,9 +1,9 @@
-Pipeline
+pipeline
 {
     agent any
-    Stages
+    stages
     {
-        Stage('code checkout') {
+        stage('code checkout') {
             steps{
                 echo 'code checkout complete'
             }
