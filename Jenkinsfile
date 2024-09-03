@@ -16,7 +16,7 @@ pipeline
         stage('docker build and push') {
             steps{
                 script {
-                    withcredentials([usernamepassword(credentialsId: 'dockercred', usernameVariable: 'Docker_Username', passwordVariable: 'Docker_Password')]) 
+                    withcredentials([usernamePassword(credentialsId: 'dockercred', usernameVariable: 'Docker_Username', passwordVariable: 'Docker_Password')]) 
                     {
                         sh 'echo $Docker_Password | docker login -u $Docker_Username --password-stdin' 
                         sh 'docker build -t webapp .'
