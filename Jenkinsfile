@@ -1,9 +1,6 @@
 pipeline
 {
     agent any
-    environment {
-        dockerimage = "$docker_username/webapp"
-    }
     stages
     {
         stage('code checkout') {
@@ -30,7 +27,7 @@ pipeline
                         echo 'image tagged as $docker_username/webapp'
                         sh "docker push $docker_username/webapp"
                         echo ' image pushed to dockerhub'
-                        sh "docker run -p 3000:8080 -d $dockerimage"
+                        sh "docker run -p 3000:8080 -d $docker_username/webapp"
                     }
             }
         }
