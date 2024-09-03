@@ -36,7 +36,7 @@ pipeline
     }
         stage('app deploy') {
             steps {
-                 sh 'docker run -p 3000:8080 -d $dockerimage'
+                 sh 'docker run -p 3000:8080 -d ${dockerimage}'
                  echo ' application deployed successfully'
             }
         }
