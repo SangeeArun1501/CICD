@@ -27,13 +27,13 @@ pipeline
                         echo 'image tagged as $docker_username/webapp'
                         sh "docker push $docker_username/webapp"
                         echo ' image pushed to dockerhub'
-                        sh "docker run -p 3000:8080 -d $docker_username/webapp"
                     }
             }
         }
     }
         stage('app deploy') {
             steps {
+                 sh "docker run -p 3000:8080 -d $docker_username/webapp"
                  echo ' application deployed successfully'
             }
         }
