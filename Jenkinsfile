@@ -22,6 +22,7 @@ pipeline
                         sh 'docker build -t webapp .'
                         sh 'docker tag webapp $Docker_Username/webapp'
                         sh 'docker push $Docker_Username/webapp'
+                        sh 'docker run -p $hostport:$containerport -d $Docker_Username/webapp'
                     }
             }
         }
