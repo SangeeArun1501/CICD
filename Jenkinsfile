@@ -10,9 +10,21 @@ pipeline
         }
         stage('maven build') {
             steps{
-                sh 'sudo apt install maven -y'
                 sh 'mvn clean install'
             }
         }
+        stage('docker build and push') {
+            steps{
+                script {
+                    withcredentials([usernamepassword(credentialsId: 'dockercred', usernameVariable: 'Docker_Username', passwordVariable: 'Docker_Password')]) 
+                    {
+                        sh 'echo $Docker_Password | docker login -u $Docker_Username --password-stdin' 
+                        sh 'docker build -t webapp .'
+                        sh 'docker tag webapp $Docker_Username/webapp'
+                        sh 'docker push $Docker_Username/webapp'
+                    }
+            }
+        }
     }
+}
 }
