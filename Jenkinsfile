@@ -1,6 +1,8 @@
 pipeline
 {
     agent any
+    environment {
+        dockerimage = '$Docker_Username/webapp'
     stages
     {
         stage('code checkout') {
@@ -33,8 +35,7 @@ pipeline
     }
         stage('app deploy') {
             steps {
-                 sh 'docker pull $Docker_Username/webapp'
-                 sh 'docker run -p 3000:8080 -d $Docker_Username/webapp'
+                 sh 'docker run -p 3000:8080 -d $dockerimage'
                  echo ' application deployed successfully'
             }
         }
