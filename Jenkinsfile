@@ -2,7 +2,7 @@ pipeline
 {
     agent any
     environment {
-        dockerimage = '$docker_username/webapp'
+        dockerimage = "$docker_username/webapp"
     }
     stages
     {
@@ -26,9 +26,9 @@ pipeline
                         echo 'Login Successfull'
                         sh 'docker build -t webapp .'
                         echo ' Build successfull'
-                        sh 'docker tag webapp $docker_username/webapp'
+                        sh "docker tag webapp $docker_username/webapp"
                         echo 'image tagged as $docker_username/webapp'
-                        sh 'docker push $docker_username/webapp'
+                        sh "docker push $docker_username/webapp"
                         echo ' image pushed to dockerhub'
                     }
             }
@@ -36,7 +36,7 @@ pipeline
     }
         stage('app deploy') {
             steps {
-                 sh 'docker run -p 3000:8080 -d ${dockerimage}'
+                 sh "docker run -p 3000:8080 -d $dockerimage"
                  echo ' application deployed successfully'
             }
         }
