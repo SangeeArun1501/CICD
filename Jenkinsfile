@@ -33,8 +33,8 @@ pipeline
     }
         stage('app deploy') {
             steps {
-                 sh "docker run -p 3000:8080 -d $docker_username/webapp"
-                 echo ' application deployed successfully'
+                sh "docker run -p 3000:8080 -d $docker_username/webapp"
+                echo ' application deployed successfully'
             }
         }
 }
