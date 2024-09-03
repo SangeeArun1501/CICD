@@ -23,11 +23,11 @@ pipeline
                         echo 'Login Successfull'
                         sh 'docker build -t webapp .'
                         echo ' Build successfull'
-                        sh "docker tag webapp 590183905103.dkr.ecr.us-east-2.amazonaws.com/webapp"
-                        echo 'image tagged as 590183905103.dkr.ecr.us-east-2.amazonaws.com/webapp'
+                        sh "docker tag webapp 590183905103.dkr.ecr.us-east-2.amazonaws.com/testrepo:latest"
+                        echo 'image tagged as 590183905103.dkr.ecr.us-east-2.amazonaws.com/testrepo:latest'
                         sh "docker push 590183905103.dkr.ecr.us-east-2.amazonaws.com/webapp"
                         echo ' image pushed to dockerhub'
-                        sh "docker run -p 3000:8080 -d 590183905103.dkr.ecr.us-east-2.amazonaws.com/webapp"
+                        sh "docker run -p 3000:8080 -d 590183905103.dkr.ecr.us-east-2.amazonaws.com/testrepo:latest"
                         echo ' application deployed successfully'
                     }
             }
