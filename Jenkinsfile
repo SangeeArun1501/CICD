@@ -33,6 +33,7 @@ pipeline
     }
         stage('app deploy') {
             steps {
+                 sh 'docker pull $Docker_Username/webapp'
                  sh 'docker run -p 3000:8080 -d $Docker_Username/webapp'
                  echo ' application deployed successfully'
             }
