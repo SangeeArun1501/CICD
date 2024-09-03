@@ -3,6 +3,7 @@ pipeline
     agent any
     environment {
         dockerimage = '$Docker_Username/webapp'
+    }
     stages
     {
         stage('code checkout') {
