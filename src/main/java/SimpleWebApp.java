@@ -8,7 +8,7 @@ public class SimpleWebApp {
         port(80);
 
         // Define a route for the root URL
-        get("/", (req, res) -> "Welcome to Devops");
+        get("/", (req, res) -> "Welcome to Devops 101");
 
         // Define a route for a specific path
         get("/hello", (req, res) -> "Hello there!");
@@ -19,4 +19,5 @@ public class SimpleWebApp {
             return "Hello, " + (name != null ? name : "Anonymous") + "!";
         });
     }
-}
+} 
+
