@@ -5,7 +5,7 @@ import static spark.Spark.*;
 public class SimpleWebApp {
     public static void main(String[] args) {
         // Set the port for the web server
-        port(8080);
+        port(80);
 
         // Define a route for the root URL
         get("/", (req, res) -> "Welcome to Devops");
