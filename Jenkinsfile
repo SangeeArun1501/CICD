@@ -34,7 +34,7 @@ pipeline
        }
         stage('docker run') {
             steps{
-                sh 'docker run -p 80:80 -d sangeetha1501/java_app:${env.BUILD_NUMBER}'
+                sh "docker run -p 80:80 -d sangeetha1501/java_app:${env.BUILD_NUMBER}"
             }
         }
     }
